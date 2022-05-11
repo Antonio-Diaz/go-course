@@ -25,4 +25,21 @@ package main
 import "fmt"
 
 func main() {
+	// 1. Declare a variable named `favoriteColor` and assign it your favorite color
+	var favoriteColor = "blue"
+	fmt.Print("My favorite color is ", favoriteColor, "\n")
+	// 2. Declare a variable named `age` and assign it your age
+	birthYear, ageInYear := 1997, 25
+	fmt.Print("I was born in ", birthYear, " and I am ", ageInYear, " years old.\n")
+	// 3. Declare a variable named `firstInitial` and assign it your first initial
+	var (
+		firstInitial = "J"
+		lastInitial  = "E"
+	)
+	fmt.Print("My initials are ", firstInitial, lastInitial, ".\n")
+
+	// 4. Declare a variable named `ageInDays` and assign it your age in days
+	var ageInDays int
+	ageInDays = 365 * ageInYear
+	fmt.Print("I am ", ageInDays, " days old.\n")
 }
