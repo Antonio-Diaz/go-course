@@ -19,6 +19,32 @@ package main
 
 import "fmt"
 
-func main() {
+func greeting(name string) {
+	fmt.Println("Greetings", name, "!")
+}
 
+func message() string {
+	return "Hello from functions.go"
+}
+
+func addThree(lhs, mhs, rhs int) int {
+	return lhs + mhs + rhs
+}
+
+func six() int {
+	return 6
+}
+
+func twoNumbers() (int, int) {
+	return 2, 2
+}
+
+func main() {
+	greeting("Bob")
+	fmt.Println(message())
+
+	a, b := twoNumbers()
+	answer := addThree(a, b, six())
+
+	fmt.Println("The answer is", answer)
 }
