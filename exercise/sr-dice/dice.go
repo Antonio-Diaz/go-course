@@ -23,7 +23,50 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+func generateRollDice(sides int) int {
+	rand.Seed(time.Now().UnixNano())
+	return rand.Intn(sides) + 1
+}
+
+func additionalInfoRoll(totalRolls int, numDice int) string {
+	isEven := totalRolls%2 == 0
+	isOdd := totalRolls%2 != 0
+	if totalRolls == 2 && numDice == 2 {
+		return "Snake eyes"
+	}
+	if totalRolls == 7 {
+		return "Lucky 7"
+	}
+	if isEven {
+		return "Even"
+	}
+	if isOdd {
+		return "Odd"
+	}
+	return ""
+}
 
 func main() {
+
+	var numRolls int = 10
+	var numDice int = 2
+	var numSides int = 6
+
+	for r := 0; r < numRolls; r++ {
+		sumRolls := 0
+		fmt.Println("Roll:", r+1)
+		for d := 0; d < numDice; d++ {
+			roll := generateRollDice(numSides)
+			sumRolls += roll
+			fmt.Println("Dice:", d+1, "Roll:", roll)
+		}
+		fmt.Println("Rolled:", sumRolls)
+		fmt.Println("Additional Info:", additionalInfoRoll(sumRolls, numDice))
+	}
 }
