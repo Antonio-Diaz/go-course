@@ -29,21 +29,6 @@ import (
 	"time"
 )
 
-func additionalInfo(roll int) string {
-	switch roll {
-	case 2:
-		return "Snake eyes"
-	case 7:
-		return "Lucky 7"
-	case 0:
-		return "Even"
-	case 1:
-		return "Odd"
-	default:
-		return ""
-	}
-}
-
 func generateRollDice(sides int) int {
 	rand.Seed(time.Now().UnixNano())
 	return rand.Intn(sides) + 1
