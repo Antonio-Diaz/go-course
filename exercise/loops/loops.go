@@ -15,4 +15,18 @@ package main
 import "fmt"
 
 func main() {
+	for i := 1; i <= 50; i++ {
+		isDivisibleBy3 := i%3 == 0
+		isDivisibleBy5 := i%5 == 0
+
+		if isDivisibleBy3 && isDivisibleBy5 {
+			fmt.Println("FizzBuzz")
+		} else if isDivisibleBy3 {
+			fmt.Println("Fizz")
+		} else if isDivisibleBy5 {
+			fmt.Println("Buzz")
+		} else {
+			fmt.Println(i)
+		}
+	}
 }
