@@ -23,7 +23,7 @@ type Product struct {
 	Price float64
 }
 
-func printStats(products [4]Product) {
+func printStats(products []Product) {
 	var totalItems int
 	var totalCost float64
 
@@ -42,12 +42,13 @@ func printStats(products [4]Product) {
 }
 
 func main() {
-	shoppingList := [4]Product{
+	shoppingList := []Product{
 		{Name: "Milk", Price: 1.99},
 		{Name: "Bread", Price: 2.99},
 		{Name: "Eggs", Price: 3.99},
 	}
 	printStats(shoppingList)
-	shoppingList[3] = Product{Name: "Cheese", Price: 4.99}
+	// shoppingList[3] = Product{Name: "Cheese", Price: 4.99}
+	shoppingList = append(shoppingList, Product{Name: "Cheese", Price: 4.99})
 	printStats(shoppingList)
 }
