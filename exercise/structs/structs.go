@@ -17,8 +17,42 @@
 
 package main
 
-import "fmt"
+type Coordinate struct {
+	x, y int
+}
+
+type Rectangle struct {
+	a Coordinate
+	b Coordinate
+}
+
+func width(r Rectangle) int {
+	return r.b.x - r.a.x
+}
+
+func length(r Rectangle) int {
+	return r.a.y - r.b.y
+}
+
+func area(r Rectangle) int {
+	return length(r) * width(r)
+}
+
+func perimeter(r Rectangle) int {
+	return 2 * (width(r) + length(r))
+}
+
+func printInfo(r Rectangle) {
+	println("Area:", area(r))
+	println("Perimeter:", perimeter(r))
+}
 
 func main() {
+	rectangle := Rectangle{a: Coordinate{0, 7}, b: Coordinate{10, 0}}
+	printInfo(rectangle)
 
+	rectangle.a.y *= 2
+	rectangle.b.x *= 2
+
+	printInfo(rectangle)
 }
