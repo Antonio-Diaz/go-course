@@ -18,5 +18,28 @@ import "fmt"
 
 type Part string
 
+func printAssemblyLine(parts []Part) {
+	fmt.Println()
+	fmt.Println("--- Assembly Line ---")
+	for i := 0; i < len(parts); i++ {
+		element := parts[i]
+		fmt.Println(element)
+	}
+}
+
 func main() {
+	assemblyLine := make([]Part, 3)
+
+	assemblyLine[0] = "A"
+	assemblyLine[1] = "B"
+	assemblyLine[2] = "C"
+
+	printAssemblyLine(assemblyLine)
+	assemblyLine = append(assemblyLine, "D", "E")
+	fmt.Println("\nAdded 2 new parts")
+	printAssemblyLine(assemblyLine)
+
+	fmt.Println("\nSlicing assembly line")
+	assemblyLine = assemblyLine[3:]
+	printAssemblyLine(assemblyLine)
 }
