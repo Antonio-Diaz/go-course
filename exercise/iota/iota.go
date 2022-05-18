@@ -14,7 +14,9 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 const (
 	add = iota
@@ -36,7 +38,7 @@ func (op Operation) calculate(lhs, rhs int) int {
 	case div:
 		return lhs / rhs
 	default:
-		return 0
+		panic("Unknown operation")
 	}
 }
 
