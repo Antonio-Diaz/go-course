@@ -21,6 +21,65 @@ package main
 
 import "fmt"
 
-func main() {
+const (
+	smallLift = iota
+	standardLift
+	largeLift
+)
 
+type Lift int
+
+type LiftPicker interface {
+	PickLift() Lift
+}
+
+type Motorcycles string
+type Car string
+type Truck string
+
+func (m Motorcycles) String() string {
+	return fmt.Sprintf("Motorcycles: %v", string(m))
+}
+
+func (c Car) String() string {
+	return fmt.Sprintf("Car: %v", string(c))
+}
+
+func (t Truck) String() string {
+	return fmt.Sprintf("Truck: %v", string(t))
+}
+
+func (m Motorcycles) PickLift() Lift {
+	return smallLift
+}
+
+func (c Car) PickLift() Lift {
+	return standardLift
+}
+
+func (t Truck) PickLift() Lift {
+	return largeLift
+}
+
+func sendToLift(v LiftPicker) {
+	switch v.PickLift() {
+	case smallLift:
+		fmt.Printf("Send %v to small lift", v)
+	case standardLift:
+		fmt.Printf("Send %v to standard lift", v)
+	case largeLift:
+		fmt.Printf("Send %v to large lift", v)
+	}
+}
+
+func main() {
+	vehicles := []LiftPicker{
+		Motorcycles("Honda"),
+		Car("Ford"),
+		Truck("Dodge"),
+	}
+
+	for _, v := range vehicles {
+		sendToLift(v)
+	}
 }
